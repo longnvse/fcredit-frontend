@@ -7,6 +7,6 @@ const Logout = (props) => {
     );
 };
 
-Login.propTypes = {};
+Logout.propTypes = {};
 
-export default Login;
+export default Logout;
