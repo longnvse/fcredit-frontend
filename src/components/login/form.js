@@ -51,7 +51,7 @@ const LoginForm = props => {
                         size={"large"}
                         type={"primary"}
                         htmlType={"submit"}
-                    >Đăng ký</Button>
+                    >Đăng nhập</Button>
                 </FormItem>
             </Form>
         </>
