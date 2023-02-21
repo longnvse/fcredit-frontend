@@ -7,7 +7,7 @@ const Routers = (props) => {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path={"/login"} element={<Login name={"long"} />}/>
+                <Route path={"/login"} element={<Login/>}/>
                 <Route path={"/register"} element={<Register/>}/>
             </Routes>
         </BrowserRouter>
