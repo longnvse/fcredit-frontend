@@ -4,7 +4,8 @@ import background from "./../assets/register-bg.svg";
 import {Link} from "react-router-dom";
 import RegisterForm from "../components/register/form";
 
-const Register = props => {
+const Register = () => {
+
     return (
         <>
             <Row className={"h-[100vh]"}>
@@ -36,7 +37,7 @@ const Register = props => {
                     <img
                         src={background}
                         className={"max-w-full max-h-full w-[65%]"}
-                    />
+                        alt={""}/>
                 </Col>
             </Row>
         </>

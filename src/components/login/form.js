@@ -2,20 +2,19 @@ import React from 'react';
 import {Button, Form, Input, message} from "antd";
 import FormItem from "antd/es/form/FormItem";
 import Title from "../title";
-import {LockOutlined, MailOutlined, UserOutlined} from "@ant-design/icons";
+import {LockOutlined, UserOutlined} from "@ant-design/icons";
 import Captcha from "../captcha/Captcha";
-import {registerUser} from "../../api/auth/register";
 import {useNavigate} from "react-router-dom";
+import {login} from "../../api/auth/login";
+import {updateLocalAccessToken} from "../../axios";
 
-const RegisterForm = props => {
+const LoginForm = props => {
     const navigate = useNavigate();
     const onFinish = (values) => {
         console.log(values)
-        registerUser(values).then(res => {
-            message.success(res.data).then(value => {
-                message.success("Vui lòng kiểm tra hòm mail để kích hoạt tài khoản!");
-            });
-            navigate("/login");
+        login(values).then(res => {
+            updateLocalAccessToken(res.data.token);
+            navigate("/");
         }).catch(err => {
             console.log({err});
         })
@@ -23,7 +22,7 @@ const RegisterForm = props => {
 
     return (
         <>
-            <Title content={"Tạo tài khoản"}/>
+            <Title content={"Đăng nhập"}/>
             <Form
                 onFinish={onFinish}
                 layout={"vertical"}
@@ -40,19 +39,6 @@ const RegisterForm = props => {
                         size={"large"}
                         prefix={<UserOutlined/>}
                         placeholder={"Tên người dùng"}
-                    />
-                </FormItem>
-                <FormItem
-                    name={"email"}
-                    rules={[{
-                        required: true,
-                        message: "Vui lòng nhập email!"
-                    }]}
-                >
-                    <Input
-                        size={"large"}
-                        prefix={<MailOutlined/>}
-                        placeholder={"Email"}
                     />
                 </FormItem>
                 <FormItem
@@ -86,13 +72,10 @@ const RegisterForm = props => {
                         size={"large"}
                         type={"primary"}
                         htmlType={"submit"}
-                    >Đăng ký</Button>
+                    >Đăng nhập</Button>
                 </FormItem>
             </Form>
         </>
     );
 };
-
-RegisterForm.propTypes = {};
-
-export default RegisterForm;
+export default LoginForm;
