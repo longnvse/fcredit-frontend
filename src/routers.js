@@ -4,6 +4,7 @@ import Login from "./pages/login";
 import Register from "./pages/register";
 import VerifyUser from "./pages/verify-user";
 import ListDebtor from "./pages/debtor";
+import DebtNoteDetail from './pages/debt-note-detail';
 
 const Routers = (props) => {
     return (
@@ -13,6 +14,7 @@ const Routers = (props) => {
                 <Route path={"/login"} element={<Login/>}/>
                 <Route path={"/register"} element={<Register/>}/>
                 <Route path={"/verify-user"} element={<VerifyUser/>}/>
+                <Route path={"/debt-note-detail"} element={<DebtNoteDetail/>}/>
             </Routes>
         </BrowserRouter>
     );
