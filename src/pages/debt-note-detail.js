@@ -23,7 +23,7 @@ const DebtNoteDetail = () => {
        + Tạo phiếu nợ
       </Button>
       <Modal  width={800}  style={{backgroundColor:'gray',}}  open={isModalOpen} onOk={handleOk} onCancel={handleCancel}  >
-     <h1 >Chi tiết nợ</h1>
+     <h2 >Chi tiết nợ</h2>
       <Form   labelCol={{
        span: 7,
      }}
