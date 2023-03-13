@@ -60,7 +60,7 @@ const DebtNoteDetail = () => {
      <Form.Item label="Ngày lập phiếu">
       <DatePicker status="error"
    style={{
-     width: '60%',
+     width: '70%',
    }} placeholder=" DD/MM/YYYY "/>
    <Space wrap>
     
