@@ -20,7 +20,7 @@ const DebtNoteDetail = () => {
   return (
     <>
       <Button type="primary" onClick={showModal}>
-       Chi tiết
+       + Tạo phiếu nợ
       </Button>
       <Modal title="Chi tiết nợ" width={1000} open={isModalOpen} onOk={handleOk} onCancel={handleCancel}  >
       <Form   labelCol={{
