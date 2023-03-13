@@ -1,7 +1,7 @@
 import React , {useState} from 'react';
 import { PlusOutlined } from '@ant-design/icons';
-import { Button,DatePicker,Form,Input, Space,Upload,Modal} from 'antd';
-
+import { Button,DatePicker,Form,Input, Space,Upload,Modal,Typography} from 'antd';
+const { Text } = Typography;
 const { TextArea } = Input;
 const DebtNoteDetail = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -22,7 +22,8 @@ const DebtNoteDetail = () => {
       <Button type="primary" onClick={showModal}>
        + Tạo phiếu nợ
       </Button>
-      <Modal title="Chi tiết nợ" width={1000} open={isModalOpen} onOk={handleOk} onCancel={handleCancel}  >
+      <Modal  width={1000} open={isModalOpen} onOk={handleOk} onCancel={handleCancel}  >
+     <h1>Chi tiết nợ</h1>
       <Form   labelCol={{
        span: 10,
      }}
@@ -62,7 +63,8 @@ const DebtNoteDetail = () => {
        <Upload action="/upload.do" listType="picture-card">
          <div>
            <PlusOutlined />
-           <div style={{ marginTop: 8 }}>Image</div>
+           <div style={{ marginTop: 8 }}>
+           <Space direction="vertical"><Text type="secondary">Image</Text></Space></div>
          </div>
        </Upload>
      </Form.Item>
