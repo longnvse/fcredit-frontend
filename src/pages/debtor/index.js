@@ -138,15 +138,6 @@ const ListDebtor = props => {
         {
             title: 'Action',
             dataIndex: 'action',
-            filters: [
-                {
-                    text: 'London',
-                    value: 'London',
-                },
-            ],
-            onFilter: (value, record) => record.action.startsWith(value),
-            filterSearch: true,
-            width: '40%',
         }
     ];
 
