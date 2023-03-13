@@ -1,6 +1,9 @@
 import React , {useState} from 'react';
 import { PlusOutlined } from '@ant-design/icons';
-import { Button,DatePicker,Form,Input, Space,Upload,Modal,Typography} from 'antd';
+import { Button,DatePicker,Form,Input, Space,Upload,Modal,Typography,TimePicker } from 'antd';
+const onChange = (time, timeString) => {
+  console.log(time, timeString);
+};
 const { Text } = Typography;
 const { TextArea } = Input;
 const DebtNoteDetail = () => {
@@ -24,6 +27,7 @@ const DebtNoteDetail = () => {
       </Button>
       <Modal  width={800}  style={{backgroundColor:'gray',}}  open={isModalOpen} onOk={handleOk} onCancel={handleCancel}  >
      <h2 >Chi tiết nợ</h2>
+   
       <Form   labelCol={{
        span: 7,
      }}
@@ -56,8 +60,12 @@ const DebtNoteDetail = () => {
      <Form.Item label="Ngày lập phiếu">
       <DatePicker status="error"
    style={{
-     width: '100%',
-   }} placeholder=" DD/MM/YYYY HH:mm" />
+     width: '60%',
+   }} placeholder=" DD/MM/YYYY "/>
+   <Space wrap>
+    
+    <TimePicker use12Hours format="h:mm a" onChange={onChange} placeholder=" HH:mm "v />
+  </Space>
      </Form.Item>
      <Form.Item label="Hình ảnh chứng minh" valuePropName="fileList">
        <Upload action="/upload.do" listType="picture-card">
