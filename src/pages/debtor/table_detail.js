@@ -19,8 +19,8 @@ const Tables = (props) => {
 
   const columns = [
     {
-      title: "id",
-      dataIndex: "id",
+      title: "ID",
+      dataIndex: "ID",
       sorter: (a, b) => a.id - b.id,
     },
     {
