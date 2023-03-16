@@ -28,12 +28,12 @@ const Tables = (props) => {
       dataIndex: "ghi_chú",
       filters: [
         {
-          text: "Mike",
-          value: "Jack",
+          text: "Vay",
+          value: "Vay",
         },
         {
-          text: "Category 1",
-          value: "Category 1",
+          text: "Trả",
+          value: "Trả",
         },
       ],
       filterSearch: true,
@@ -46,12 +46,12 @@ const Tables = (props) => {
       dataIndex: "Loại_nợ",
       filters: [
         {
-          text: "London",
-          value: "London",
+          text: "+",
+          value: "+",
         },
         {
-          text: "New York",
-          value: "New York",
+          text: "-",
+          value: "-",
         },
       ],
       onFilter: (value, record) => record.địa_chỉ.startsWith(value),
@@ -63,8 +63,8 @@ const Tables = (props) => {
       dataIndex: "Số_tiền",
       filters: [
         {
-          text: "129389123",
-          value: "Lon123123don",
+          text: "From...To",
+          value: "",
         },
       ],
       onFilter: (value, record) => record.sđt.startsWith(value),
@@ -77,8 +77,8 @@ const Tables = (props) => {
       dataIndex: "ngày_tạo",
       filters: [
         {
-          text: "London",
-          value: "London",
+          text: "Date",
+          value: "Date",
         },
       ],
       onFilter: (value, record) => record.ngày_tạo.startsWith(value),
@@ -86,12 +86,12 @@ const Tables = (props) => {
       width: "40%",
     },
     {
-      title: "Cập nhật",
+      title: "Thời gian tạo",
       dataIndex: "cập_nhật",
       filters: [
         {
-          text: "London",
-          value: "London",
+          text: "Time",
+          value: "Time",
         },
       ],
       onFilter: (value, record) => record.cập_nhật.startsWith(value),
@@ -103,8 +103,8 @@ const Tables = (props) => {
       dataIndex: "action",
       filters: [
         {
-          text: "London",
-          value: "London",
+          text: "",
+          value: "",
         },
       ],
       onFilter: (value, record) => record.action.startsWith(value),
