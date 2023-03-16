@@ -16,6 +16,7 @@ const DebtDetail = () => {
   return (
     <>
       <Button type="primary" icon={<ExclamationCircleOutlined />} onClick={showModal}>
+      Chi tiết
       </Button>
       <Modal
         width="60%"
