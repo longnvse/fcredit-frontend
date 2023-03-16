@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Button, Modal } from "antd";
-
+import {ExclamationCircleOutlined} from '@ant-design/icons';
 import Tables from "./table_detail";
 const DebtDetail = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -15,8 +15,7 @@ const DebtDetail = () => {
   };
   return (
     <>
-      <Button type="primary" onClick={showModal}>
-      i
+      <Button type="primary" icon={<ExclamationCircleOutlined />} onClick={showModal}>
       </Button>
       <Modal
         width="60%"
