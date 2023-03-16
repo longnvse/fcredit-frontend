@@ -16,7 +16,7 @@ const DebtDetail = () => {
   return (
     <>
       <Button type="primary" onClick={showModal}>
-        Chi tiết
+      i
       </Button>
       <Modal
         width="60%"
