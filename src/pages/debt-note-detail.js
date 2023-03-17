@@ -20,6 +20,7 @@ const DebtNoteDetail = () => {
   const handleCancel = () => {
     setIsModalOpen(false);
   };
+  
   return (
     <>
       <Button type="primary" onClick={showModal}>
@@ -40,10 +41,10 @@ const DebtNoteDetail = () => {
        maxWidth: 700,
      }}>
     
-     <Form.Item label="Ghi chú">
+     <Form.Item label="Ghi chú" style={{fontWeight: '700'}}>
        <TextArea rows={4} />
      </Form.Item>
-     <Form.Item  label="Loại nợ (*)">
+     <Form.Item  label="Loại nợ (*)"  style={{fontWeight: '700'}}>
      <Space wrap>
      <Button type="primary"style={{
      width: '240px',
@@ -54,20 +55,20 @@ const DebtNoteDetail = () => {
      </Space>
    </Form.Item>
   
-   <Form.Item label="Số tiền (*)">
+   <Form.Item label="Số tiền (*)"  style={{fontWeight: '700'}}>
    <Input placeholder="0" />
      </Form.Item>
-     <Form.Item label="Ngày lập phiếu">
+     <Form.Item label="Ngày lập phiếu" style={{fontWeight: '700'}}>
       <DatePicker status="error"
    style={{
-     width: '70%',
+     width: '30%',
    }} placeholder=" DD/MM/YYYY "/>
    <Space wrap>
     
     <TimePicker use12Hours format="h:mm a" onChange={onChange} placeholder=" HH:mm "v />
   </Space>
      </Form.Item>
-     <Form.Item label="Hình ảnh chứng minh" valuePropName="fileList">
+     <Form.Item label="Hình ảnh chứng minh"  style={{fontWeight: '700'}} valuePropName="fileList">
        <Upload action="/upload.do" listType="picture-card">
          <div>
            <PlusOutlined />
