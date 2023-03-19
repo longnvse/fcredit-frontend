@@ -46,9 +46,9 @@ const DebtMenu = () => {
                         background: colorBgContainer,
                     }}
                 >
-                    <div className='p-2'>
-                        <p className='text-lg font-semibold'>
-                            Danh sách người nợ <br /> <span className='text-sm font-sans'>Total: ~Record(s)</span>
+                    <div className='p-3'>
+                        <p className='text-3xl text-primary-600 font-bold'>
+                            Danh sách người nợ <br /> 
                         </p>
                     </div>
                 </Header>
