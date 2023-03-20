@@ -6,21 +6,28 @@ import reportWebVitals from './reportWebVitals';
 import {ConfigProvider} from "antd";
 import vi_VN from "antd/es/locale/vi_VN";
 import setupAxios from "./axios/interceptor";
+import {persistor, store} from "./redux/store/store";
+import {Provider} from "react-redux";
+import {PersistGate} from "redux-persist/integration/react";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-    <ConfigProvider
-        locale={vi_VN}
-        theme={{
-            token: {
-                colorPrimary: "#DF5173",
-                colorLink: "#DF5173FF",
-                colorLinkHover: "rgba(223,81,115,0.8)"
-            }
-        }}
-    >
-        <App/>
-    </ConfigProvider>
+    <Provider store={store}>
+        <PersistGate loading={null} persistor={persistor}>
+            <ConfigProvider
+                locale={vi_VN}
+                theme={{
+                    token: {
+                        colorPrimary: "#DF5173",
+                        colorLink: "#DF5173FF",
+                        colorLinkHover: "rgba(223,81,115,0.8)"
+                    }
+                }}
+            >
+                <App/>
+            </ConfigProvider>
+        </PersistGate>
+    </Provider>
 );
 
 setupAxios();
