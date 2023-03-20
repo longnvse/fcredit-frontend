@@ -52,3 +52,46 @@ code {
   border: 6px solid transparent;
   border-radius: 20px;
 }
+
+.app {
+  &__header {
+
+    &--logo {
+      height: 42px !important;
+      object-fit: contain;
+      margin: auto;
+    }
+  }
+
+  &__content {
+    border-radius: var(--border-radius);
+    margin: 8px;
+    padding: 16px;
+    background-color: #fff;
+    max-height: calc(100vh - 80px);
+    overflow: auto;
+  }
+}
+
+.text {
+  &__header {
+    font-family: 'Open Sans', serif;
+    font-size: x-large;
+    font-weight: bold;
+    color: white;
+  }
+}
+
+.loading {
+  animation: loadingAppear 0.1s;
+}
+
+@keyframes loadingAppear {
+  from {
+    top: -10px;
+  }
+
+  to {
+    top: 0;
+  }
+}
