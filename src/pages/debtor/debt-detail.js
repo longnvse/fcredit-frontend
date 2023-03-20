@@ -1,22 +1,27 @@
 import React, { useState } from "react";
 import { Button, Modal } from "antd";
-import {ExclamationCircleOutlined} from '@ant-design/icons';
+import { ExclamationCircleOutlined } from "@ant-design/icons";
 import Tables from "./table_detail";
 const DebtDetail = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(null);
   const showModal = () => {
     setIsModalOpen(true);
   };
   const handleOk = () => {
-    setIsModalOpen(false);
+    setIsModalOpen(null);
   };
   const handleCancel = () => {
-    setIsModalOpen(false);
+    setIsModalOpen(null);
   };
+
   return (
     <>
-      <Button type="primary" icon={<ExclamationCircleOutlined />} onClick={showModal}>
-      Chi tiết
+      <Button
+        type="primary"
+        icon={<ExclamationCircleOutlined />}
+        onClick={showModal}
+      >
+        Chi tiết
       </Button>
       <Modal
         width="60%"
@@ -24,6 +29,8 @@ const DebtDetail = () => {
         open={isModalOpen}
         onOk={handleOk}
         onCancel={handleCancel}
+        footer={null}
+        closable={true}
       >
         <Tables />
       </Modal>
