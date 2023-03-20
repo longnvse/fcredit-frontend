@@ -4,7 +4,6 @@ import Adddebtor from './pages/adddebtor';
 import Login from "./pages/login";
 import Register from "./pages/register";
 import VerifyUser from "./pages/verify-user";
-
 const Routers = (props) => {
     return (
         <BrowserRouter>
