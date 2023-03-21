@@ -1,34 +1,13 @@
 import { Table } from 'antd';
 import React from 'react';
+import { getDebtList } from '../../api/auth/debtor/debtor';
 
-const ListDebtor = props => {
-    const dataSource = [
-        {
-            key: '1',
-            id: '1',
-            tên: 'mike',
-            địa_chỉ: '10 Downing Street',
-            sđt: '012345678',
-            email: 'mike@FBT.com',
-            tổng_nợ: '1234',
-            ngày_tạo: '11/1/1111',
-            cập_nhật: '12/1/1111',
-
-        },
-        {
-            key: '2',
-            id: '2',
-            tên: 'jack',
-            địa_chỉ: '10 Uper Street',
-            sđt: '012345678',
-            email: 'jack@FBT.com',
-            tổng_nợ: '1234',
-            ngày_tạo: '12/1/1111',
-            cập_nhật: '13/1/1111',
-
-        }
-    ];
-
+export const ListDebtor = props => {
+    useEffect(() => {
+        getDebtList().then(res => {
+            console.log(res.data);
+        })
+    }, [])
     const columns = [
         {
             title: 'id',
@@ -57,14 +36,6 @@ const ListDebtor = props => {
             title: 'Địa chỉ',
             dataIndex: 'địa_chỉ',
             filters: [
-                {
-                    text: 'London',
-                    value: 'London',
-                },
-                {
-                    text: 'New York',
-                    value: 'New York',
-                },
             ],
             onFilter: (value, record) => record.địa_chỉ.startsWith(value),
             filterSearch: true,
@@ -147,7 +118,7 @@ const ListDebtor = props => {
     return (
         <div>
             <div>
-                <Table columns={columns} dataSource={dataSource} onChange={onChange} />
+                <Table columns={columns} onChange={onChange} />
             </div>
         </div>
     )
