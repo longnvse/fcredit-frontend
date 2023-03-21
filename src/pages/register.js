@@ -3,6 +3,7 @@ import {Col, Row, Space} from "antd";
 import background from "./../assets/register-bg.svg";
 import {Link} from "react-router-dom";
 import RegisterForm from "../components/register/form";
+import logo from "../assets/logo.png"
 
 const Register = () => {
 
@@ -11,8 +12,7 @@ const Register = () => {
             <Row className={"h-[100vh]"}>
                 <Col span={11}>
                     <Space direction={"vertical"} size={200} className={"flex"}>
-                        <Row className={"flex justify-between"}>
-                            <div>LOGO</div>
+                        <Row className={"flex justify-end"}>
                             <div className={"mt-5 mr-5"}>Bạn đã có tài khoản?
                                 <Link className={"underline ml-1"} to={"/login"}>Đăng nhập</Link></div>
                         </Row>

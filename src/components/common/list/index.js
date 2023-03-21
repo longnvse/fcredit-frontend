@@ -1,18 +1,15 @@
 import React, {useEffect, useState} from 'react';
-import {Col, Row, Table} from "antd";
+import {Table} from "antd";
 import PropTypes from "prop-types";
 import {useSelector} from "react-redux";
 import {message_error} from "../Constant";
 
 function CommonList({
                         mapData,
-                        buttonAdd = <></>,
                         load,
                         columns = [],
-                        isSelections = false,
-                        rowSelection = {},
-                        hiddenButton = false,
-                        maxHeight = 650
+                        maxHeight = 650,
+                        tableProps = {}
                     }) {
     const [params, setParams] = useState({page: 0, size: 10});
     const [totalCount, setTotalCount] = useState();
@@ -70,29 +67,17 @@ function CommonList({
     }
 
     return (<div>
-        {!hiddenButton && <Row gutter={12} className={"mb-4"}>
-            <Col>
-                {buttonAdd}
-            </Col>
-        </Row>}
         <Table
             columns={columns}
             dataSource={data}
             onChange={onChangeTable}
-            rowSelection={isSelections && rowSelection}
-            onHeaderRow={() => {
-                return {
-                    style: {
-                        fontWeight: 'bold'
-                    }
-                }
-            }}
             scroll={{
                 y: maxHeight
             }}
             pagination={{
                 defaultCurrent: 1, defaultPageSize: 10, total: totalCount, showTotal: (total) => `${total} kết quả`,
             }}
+            {...tableProps}
         />
     </div>);
 }

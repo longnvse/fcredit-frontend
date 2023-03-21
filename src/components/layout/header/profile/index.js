@@ -1,41 +1,32 @@
 import React, {useEffect, useState} from "react";
-import {Avatar, Dropdown, Menu, Space} from "antd";
+import {Avatar, Button, Dropdown, Space} from "antd";
 import {KeyOutlined, LogoutOutlined, UserOutlined} from "@ant-design/icons";
-import {useNavigate} from "react-router-dom";
-import {useDispatch, useSelector} from "react-redux";
 import {VscAccount} from "react-icons/vsc";
-import {RiGitRepositoryPrivateLine} from "react-icons/ri";
+import {getProfile} from "../../../../api/auth/user";
+import {logout} from "../../../../api/auth/login";
+import ButtonModal from "../../../common/button/ButtonModal";
+import ProfileForm from "./form";
+import {UPDATE} from "../../../common/Constant";
+import ChangePasswordForm from "./change-password-form";
 
 
 const ProfileIcon = (props) => {
-    let navigate = useNavigate();
-    const dispatch = useDispatch();
-    const [open, setOpen] = useState(false);
-    const {avatar} = useSelector(state => state.commonReducer);
+    // const {avatar} = useSelector(state => state.commonReducer);
+    const [profile, setProfile] = useState({});
 
-    // useEffect(() => {
-    //     getAccountInfo().then(res => {
-    //         dispatch(changeAvatar(res.data.avatar));
-    //     })
-    // }, []);
-
-    const handleOpenChangePassword = () => {
-        setOpen(true);
-    };
-
-    const handleCloseChangePassword = () => {
-        setOpen(false);
-    };
+    useEffect(() => {
+        getProfile().then(res => {
+            console.log(res);
+            setProfile(res.data);
+        })
+    }, []);
 
     const handleOnLogout = () => {
-        // dispatch(logoutStart());
+        logout();
     };
 
     const menuItems = [
         {
-            onClick: () => {
-                navigate("/account/info");
-            },
             label: (
                 <>
                     <Space>
@@ -45,37 +36,55 @@ const ProfileIcon = (props) => {
                                 verticalAlign: "middle",
                             }}
                             icon={<UserOutlined/>}
-                            src={avatar}
+                            // src={avatar}
                         />
-                        {/*{getMe().fullName}*/}
+                        {profile.fullName || profile.username || ""}
                     </Space>
                 </>
             ),
             key: "/avatar",
         },
         {
-            onClick: () => {
-                // navigate(URIS.ACCOUNT_INFO);
-            },
-            label: "Thông tin cá nhân",
+            label: <ButtonModal
+                mode={UPDATE}
+                title={"Thông tin cá nhân"}
+                formId={"profile-form"}
+                buttonProps={{
+                    value: "Thông tin người dùng",
+                    type: "link",
+                    className: "text-black"
+                }}
+                modalProps={{
+                    width: "40%"
+                }}
+            >
+                <ProfileForm/>
+            </ButtonModal>,
             key: "account-info",
             icon: <VscAccount/>,
         },
         {
-            onClick: () => {
-                // navigate(URIS.ACCOUNT_SECURITY);
-            },
-            label: "Bảo mật",
-            key: "account-security",
-            icon: <RiGitRepositoryPrivateLine/>,
-        },
-        {
-            label: "Đổi mật khẩu",
+            label: <ButtonModal
+                mode={UPDATE}
+                title={"Đổi mật khẩu"}
+                formId={"change-password-form"}
+                buttonProps={{
+                    value: "Đổi mật khẩu",
+                    type: "link",
+                    className: "text-black"
+                }}
+                modalProps={{
+                    width: "40%",
+                    okText: "Đổi mật khẩu"
+                }}
+            >
+                <ChangePasswordForm/>
+            </ButtonModal>,
             key: "/change-password",
             icon: <KeyOutlined/>,
         },
         {
-            label: "Đăng xuất",
+            label: <Button type={"link"} className={"text-black"}>Đăng xuất</Button>,
             key: "/logout",
             icon: <LogoutOutlined/>,
             style: {
@@ -85,86 +94,24 @@ const ProfileIcon = (props) => {
         },
     ];
 
-    const menu = (
-        <Menu
-            className={"menu-dropdown-account"}
-            items={[
-                {
-                    onClick: () => {
-                        // navigate(URIS.ACCOUNT_INFO);
-                    },
-                    label: (
-                        <>
-                            <Space>
-                                <Avatar
-                                    size={"large"}
-                                    icon={<UserOutlined/>}
-                                    style={{
-                                        verticalAlign: "middle",
-                                    }}
-                                    src={avatar}
-                                />
-                                {/*{getMe().fullName}*/}
-                            </Space>
-                        </>
-                    ),
-                    key: "/avatar",
-                },
-                {
-                    onClick: () => {
-                        // navigate(URIS.ACCOUNT_INFO);
-                    },
-                    label: "Thông tin cá nhân",
-                    key: "account-info",
-                    icon: <VscAccount/>,
-                },
-                {
-                    onClick: () => {
-                        // navigate(URIS.ACCOUNT_SECURITY);
-                    },
-                    label: "Bảo mật",
-                    key: "account-security",
-                    icon: <RiGitRepositoryPrivateLine/>,
-                },
-                {
-                    label: "Đổi mật khẩu",
-                    key: "/change-password",
-                    icon: <KeyOutlined/>,
-                    onClick: handleOpenChangePassword,
-                },
-                {
-                    label: "Đăng xuất",
-                    key: "/logout",
-                    icon: <LogoutOutlined/>,
-                    style: {
-                        borderTop: "1px solid #ccc",
-                    },
-                    onClick: handleOnLogout,
-                },
-            ]}
-        />
-    );
 
     return (
         <>
-            {/*<Dropdown*/}
-            {/*    overlay={menu}*/}
-            {/*    trigger={["click"]}*/}
-            {/*    placement={"bottomRight"}*/}
-            {/*>*/}
-            {/*    <div className={"cursor-pointer float-right app__header--item"}>*/}
-            {/*        <Avatar*/}
-            {/*            size={"default"}*/}
-            {/*            icon={<UserOutlined/>}*/}
-            {/*            src={avatar}*/}
-            {/*        />*/}
-            {/*    </div>*/}
-            {/*</Dropdown>*/}
-            {/*<ModalChangePassword*/}
-            {/*    open={open}*/}
-            {/*    setOpen={setOpen}*/}
-            {/*    onCancel={handleCloseChangePassword}*/}
-            {/*/>*/}
+            <Dropdown
+                menu={{
+                    items: menuItems
+                }}
+                trigger={["click"]}
+                placement={"bottomRight"}
+            >
+                <div className={"cursor-pointer float-right app__header--item"}>
+                    <Avatar
+                        size={"default"}
+                        icon={<UserOutlined/>}
+                        // src={avatar}
+                    />
+                </div>
+            </Dropdown>
         </>
     );
 };

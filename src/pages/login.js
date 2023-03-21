@@ -10,8 +10,7 @@ const Login = () => {
             <Row className={"h-[100vh]"}>
                 <Col span={11}>
                     <Space direction={"vertical"} size={200} className={"flex"}>
-                        <Row className={"flex justify-between"}>
-                            <div>LOGO</div>
+                        <Row className={"flex justify-end"}>
                             <div className={"mt-5 mr-5"}>Bạn đã có tài khoản?
                                 <Link className={"underline ml-1"} to={"/register"}>Đăng ký</Link></div>
                         </Row>

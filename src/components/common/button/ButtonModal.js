@@ -11,7 +11,8 @@ const ButtonModal = ({
                          mode = "",
                          modalProps = {},
                          buttonProps = {},
-                         button
+                         button,
+                         autoCLose = true
                      }) => {
     const [open, setOpen] = useState(false);
     const {isCloseModal} = useSelector(state => state.commonReducer);
@@ -42,27 +43,27 @@ const ButtonModal = ({
     }, [mode]);
 
     useEffect(() => {
-        if (isCloseModal) {
+        if (autoCLose && isCloseModal) {
             onClose();
         }
     }, [isCloseModal]);
 
 
     return (<div>
-            {!button ? <Button
-                onClick={onOpen} {...buttonProps}>{buttonProps.value}</Button> : React.cloneElement(button, {onClick: onOpen})}
-            <Modal
-                open={open}
-                title={title || ""}
-                onCancel={onClose}
-                okButtonProps={{htmlType: "submit", form: formId, type: "primary"}}
-                okText={buttonTitle}
-                destroyOnClose={true}
-                {...modalProps}
-            >
-                {React.cloneElement(children)}
-            </Modal>
-        </div>);
+        {!button ? <Button
+            onClick={onOpen} {...buttonProps}>{buttonProps.value}</Button> : React.cloneElement(button, {onClick: onOpen})}
+        <Modal
+            open={open}
+            title={title || ""}
+            onCancel={onClose}
+            okButtonProps={{htmlType: "submit", form: formId, type: "primary"}}
+            okText={buttonTitle}
+            destroyOnClose={true}
+            {...modalProps}
+        >
+            {React.cloneElement(children)}
+        </Modal>
+    </div>);
 };
 
 ButtonModal.propTypes = {};

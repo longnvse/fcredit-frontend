@@ -55,6 +55,19 @@ code {
 
 .app {
   &__header {
+    &--item {
+      &:hover {
+        background-color: rgb(225, 113, 135);
+        cursor: pointer;
+        border-radius: 8px;
+      }
+
+      min-width: 40px;
+      height: 40px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
 
     &--logo {
       height: 42px !important;
@@ -62,6 +75,7 @@ code {
       margin: auto;
     }
   }
+
 
   &__content {
     border-radius: var(--border-radius);
@@ -80,6 +94,17 @@ code {
     font-weight: bold;
     color: white;
   }
+
+  --red {
+    color: red !important;
+  }
+}
+
+.logo--login {
+  width: 50px !important;
+  height: 42px !important;
+  object-fit: contain;
+  margin: auto;
 }
 
 .loading {

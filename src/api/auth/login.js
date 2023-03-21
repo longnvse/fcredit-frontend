@@ -15,6 +15,9 @@ export const login = ({username, password, captchaResponse}) => {
 };
 
 export const logout = () => {
-    return api.post(BASE_URL_LOG_OUT);
+    localStorage.clear();
+    api.post(BASE_URL_LOG_OUT).finally(() => {
+        window.location.href = "login";
+    });
 }
 
