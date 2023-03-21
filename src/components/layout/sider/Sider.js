@@ -4,7 +4,7 @@ import logo from "../../../assets/logo.png";
 import Sider from "antd/es/layout/Sider";
 import {Link, useNavigate} from "react-router-dom";
 import {URIS} from "../../../uris";
-import {AccountBookOutlined, WindowsOutlined} from "@ant-design/icons";
+import {AccountBookOutlined} from "@ant-design/icons";
 
 function CommonSider({children}) {
     const [collapsed, setCollapsed] = useState(false);
@@ -32,11 +32,12 @@ function CommonSider({children}) {
     }, [])
 
     const items = [
+        // {
+        //     key: "dashboard",
+        //     icon: <WindowsOutlined/>,
+        //     label: <Link to={URIS.DASHBOARD}>Dashboard</Link>
+        // },
         {
-            key: "dashboard",
-            icon: <WindowsOutlined/>,
-            label: <Link to={URIS.DASHBOARD}>Dashboard</Link>
-        }, {
             key: "debt",
             icon: <AccountBookOutlined/>,
             label: <Link to={URIS.DEBT}>Sổ ghi nợ</Link>
