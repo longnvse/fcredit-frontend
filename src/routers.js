@@ -6,6 +6,7 @@ import VerifyUser from "./pages/verify-user";
 import {URIS} from "./uris";
 import RootPage from "./components/layout";
 import Dashboard from "./pages/dashboard";
+import Debt from "./pages/debt";
 
 const Routers = (props) => {
     return (
@@ -21,7 +22,7 @@ const Routers = (props) => {
                     }
                 >
                     <Route path={URIS.DASHBOARD} element={<Dashboard/>}/>
-                    <Route path={URIS.DEBT} element={<></>}/>
+                    <Route path={URIS.DEBT} element={<Debt/>}/>
                 </Route>
             </Routes>
         </BrowserRouter>

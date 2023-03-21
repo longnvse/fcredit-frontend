@@ -2,28 +2,12 @@ import React from "react";
 import {Layout} from "antd";
 import {useSelector} from "react-redux";
 import {useToken} from "antd/es/theme/internal";
+import ProfileIcon from "./profile";
 
 const {Header} = Layout;
 
 function CommonHeader(props) {
     const {title} = useSelector(state => state.commonReducer);
-    // const [searchParams] = useSearchParams();
-    // let navigate = useNavigate();
-    // const {pathname} = useLocation();
-    // const inputRef = useRef();
-    // const onChangeSearch = (e) => {
-    //     const {value} = e.target;
-    //     searchBounce(value);
-    // }
-    //
-    // const searchBounce = useCallback(debounce((nextValue) => {
-    //     if (!nextValue) {
-    //         searchParams.delete("keyword");
-    //     } else {
-    //         searchParams.set("keyword", nextValue);
-    //     }
-    //     navigate(`${pathname}?${searchParams.toString()}`)
-    // }, 500), [pathname]);
     const [token] = useToken();
 
     return (<Header
@@ -36,7 +20,7 @@ function CommonHeader(props) {
             <div className={"text__header pl-4"}>{title}</div>
             <div className="mr-2">
                 <div className="flex items-center">
-                    {/*<ProfileIcon/>*/}
+                    <ProfileIcon/>
                 </div>
             </div>
         </div>

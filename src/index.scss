@@ -55,6 +55,19 @@ code {
 
 .app {
   &__header {
+    &--item {
+      &:hover {
+        background-color: rgb(225, 113, 135);
+        cursor: pointer;
+        border-radius: 8px;
+      }
+
+      min-width: 40px;
+      height: 40px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
 
     &--logo {
       height: 42px !important;
@@ -79,6 +92,10 @@ code {
     font-size: x-large;
     font-weight: bold;
     color: white;
+  }
+
+  --red {
+    color: red !important;
   }
 }
 
