@@ -57,10 +57,17 @@ const RegisterForm = props => {
                 </FormItem>
                 <FormItem
                     name={"password"}
-                    rules={[{
-                        required: true,
-                        message: "Vui lòng nhập mật khẩu!"
-                    }]}
+                    rules={[
+                        {
+                            required: true,
+                            message: "Vui lòng nhập mật khẩu!"
+                        },
+                        {
+                            type: "string",
+                            min: 8,
+                            max: 16,
+                            message: "Mật khẩu có độ dài 8-16 kí tự!"
+                        }]}
                 >
                     <Input.Password
                         size={"large"}

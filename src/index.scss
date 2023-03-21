@@ -76,6 +76,7 @@ code {
     }
   }
 
+
   &__content {
     border-radius: var(--border-radius);
     margin: 8px;
@@ -97,6 +98,13 @@ code {
   --red {
     color: red !important;
   }
+}
+
+.logo--login {
+  width: 50px !important;
+  height: 42px !important;
+  object-fit: contain;
+  margin: auto;
 }
 
 .loading {
