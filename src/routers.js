@@ -12,7 +12,7 @@ const Routers = (props) => {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path={URIS.HOME} element={<Redirect to={URIS.DASHBOARD}/>}/>
+                <Route path={URIS.HOME} element={<Redirect to={URIS.DEBT}/>}/>
                 <Route path={URIS.LOGIN} element={<Login/>}/>
                 <Route path={URIS.REGISTER} element={<Register/>}/>
                 <Route path={URIS.VERIFY_USER} element={<VerifyUser/>}/>
@@ -21,7 +21,7 @@ const Routers = (props) => {
                         <RootPage/>
                     }
                 >
-                    <Route path={URIS.DASHBOARD} element={<Dashboard/>}/>
+                    {/*<Route path={URIS.DASHBOARD} element={<Dashboard/>}/>*/}
                     <Route path={URIS.DEBT} element={<Debt/>}/>
                 </Route>
             </Routes>
